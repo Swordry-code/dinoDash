@@ -27,3 +27,5 @@ while running:
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_d:
                 game.dino.rect.x += game.dino.vitesse
+
+#Test Github
