@@ -5,7 +5,7 @@ class Player(pygame.sprite.Sprite):
     def __init__(self):
         self.vitesse = 1
         self.dash = True
-        self.image = pygame.image.load("assets/sprite/dino_idle.png")
+        self.image = pygame.transform.scale(pygame.image.load("assets/sprite/dino_idle.png"), (72, 72))
         self.rect = self.image.get_rect()
         self.rect.x = 20
         self.rect.y = 358
@@ -25,6 +25,9 @@ class Player(pygame.sprite.Sprite):
         self.is_dashing = False
 
     def dash_right(self):
-        self.vitesse += 1
-
+        self.is_dashing = True
+        fin_dash = self.rect.x + 30
+        while self.rect.x < fin_dash:
+            self.rect.x += 5
+        self.is_dashing = False
         
