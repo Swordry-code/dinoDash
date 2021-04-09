@@ -14,10 +14,13 @@ background = pygame.image.load("assets/images/background_star.jpg").convert()
 background = pygame.transform.scale(background, (screen_rect.width, screen_rect.height))
 
 game = Game()
+game.dino.default_rect_pos(screen)
 
 running = True
 
-
+def update_screen():
+    pygame.display.update()
+    
 
 while running:
 
@@ -40,7 +43,8 @@ while running:
             game.touches_pressees[pygame.K_a] = False
         else:
             game.dino.move_right()
-
+    else:
+        abc
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
@@ -51,7 +55,7 @@ while running:
 
         if event.type == pygame.KEYUP:
             game.touches_pressees[event.key] = False
-
-    pygame.display.flip()
+    
+    pygame.display.update()
 
     clock.tick(60)
