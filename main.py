@@ -43,8 +43,6 @@ while running:
             game.touches_pressees[pygame.K_a] = False
         else:
             game.dino.move_right()
-    else:
-        abc
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False

@@ -30,12 +30,19 @@ class Player(pygame.sprite.Sprite):
         self.is_dashing = True
         fin_dash = self.rect.x - 300
         while self.rect.x > fin_dash:
-            self.rect.x -= 50
+            self.rect.x -= 20
+            pygame.display.flip()
         self.is_dashing = False
 
-    def dash_right(self):
+    def update_dash_right(self):
         self.is_dashing = True
         fin_dash = self.rect.x + 300
+        debut_dash = pygame.time.get_ticks()
+        i = 17
         while self.rect.x < fin_dash:
-            self.rect.x += 50
+            if pygame.time.get_ticks() > debut_dash + i:
+                print("aaaaaaaaaaaaa")
+                self.rect.x += 20
+                i += 1
+                pygame.display.update()
         self.is_dashing = False
